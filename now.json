@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/**/*.go",
+            "use": "@now/go"
+        },
+        {
+            "src": "api/**/*.js",
+            "use": "@now/node"
+        },
+        {
+            "src": "frontend/package.json",
+            "use": "@now/next"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/api/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/frontend/$1"
+        }
+    ]
+}
